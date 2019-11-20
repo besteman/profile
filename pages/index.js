@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import NavBarCom from '../components/nav';
 import HomePageJombotron from '../components/jumbotron';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const Home = () => (
   <div>

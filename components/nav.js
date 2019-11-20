@@ -12,7 +12,6 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
-import 'bootstrap/dist/css/bootstrap.css';
 
 
 const NavBarCom = () => {
