@@ -5,7 +5,7 @@ const HomePageJombotron = () => (
     <h1 className="display-3">Hello, World!</h1>
     <h2 className="lead">My name is Justin Besteman</h2>
     <hr className="my-2" />
-    <p>A Web Developer and Software Engineer</p>
+    <p>Web Developer and Software Engineer</p>
   </Jumbotron>
 );
 
