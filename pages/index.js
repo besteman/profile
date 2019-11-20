@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Nav from '../components/nav';
+import NavBarCom from '../components/nav';
 
 const Home = () => (
   <div>
@@ -8,7 +8,7 @@ const Home = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <Nav />
+    <NavBarCom />
 
     <div className="hero">
       <h1 className="title">Welcome to Next.js!</h1>

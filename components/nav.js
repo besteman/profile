@@ -1,60 +1,60 @@
-import React from 'react';
-import Link from 'next/link';
+import { useState } from 'react';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 
-const links = [
-  { href: 'https://zeit.co/now', label: 'ZEIT' },
-  { href: 'https://github.com/zeit/next.js', label: 'GitHub' },
-].map((link) => {
-  const temp = link;
-  temp.key = `nav-link-${link.href}-${link.label}`;
-  return temp;
-});
 
-const Nav = () => (
-  <nav>
-    <ul>
-      <li>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </li>
-      {links.map(({ key, href, label }) => (
-        <li key={key}>
-          <a href={href}>{label}</a>
-        </li>
-      ))}
-    </ul>
+const NavBarCom = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-    <style jsx>
-      {`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-    `}
+  const toggle = () => setIsOpen(!isOpen);
 
-    </style>
-  </nav>
-);
+  return (
+    <div>
+      <Navbar color="dark" light expand="md">
+        <NavbarBrand href="/">besteman</NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="mr-auto" navbar>
+            <NavItem>
+              <NavLink href="/About">About</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="https://github.com/besteman" target="_blank">GitHub</NavLink>
+            </NavItem>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Options
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                  Option 1
+                </DropdownItem>
+                <DropdownItem>
+                  Option 2
+                </DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>
+                  Reset
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+          </Nav>
+        </Collapse>
+      </Navbar>
+    </div>
+  );
+};
 
-export default Nav;
+export default NavBarCom;
